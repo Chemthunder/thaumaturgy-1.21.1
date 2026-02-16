@@ -73,7 +73,7 @@ dependencies {
     include(implementation(annotationProcessor("com.github.bawnorton.mixinsquared:mixinsquared-fabric:${project.mixinsquared_version}")))
 
     // trinkets
-    modCompileOnly "dev.emi:trinkets:${project.trinkets_version}"
+    modImplementation include("dev.emi:trinkets:${project.trinkets_version}")
 }
 
 processResources {

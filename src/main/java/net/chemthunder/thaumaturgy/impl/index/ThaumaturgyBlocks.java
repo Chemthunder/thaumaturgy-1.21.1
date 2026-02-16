@@ -14,7 +14,7 @@ import net.minecraft.sound.BlockSoundGroup;
 import java.util.function.Function;
 
 public interface ThaumaturgyBlocks {
-    Block INTERCEPTOR = createWithItem("interceptor", InterceptorBlock::new, AbstractBlock.Settings.copy(Blocks.COPPER_BULB).sounds(BlockSoundGroup.LODESTONE), new Item.Settings());
+    Block INTERCEPTOR = createWithItem("interceptor", InterceptorBlock::new, AbstractBlock.Settings.copy(Blocks.COPPER_BLOCK).sounds(BlockSoundGroup.LODESTONE), new Item.Settings());
 
     static Block create(String name, Function<AbstractBlock.Settings, Block> factory, AbstractBlock.Settings settings) {
         Block block = factory.apply(settings);
