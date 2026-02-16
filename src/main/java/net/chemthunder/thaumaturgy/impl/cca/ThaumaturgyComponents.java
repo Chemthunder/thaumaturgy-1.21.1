@@ -1,6 +1,5 @@
 package net.chemthunder.thaumaturgy.impl.cca;
 
-import net.chemthunder.thaumaturgy.impl.cca.world.ToLiveEternityWorldEventComponent;
 import org.ladysnake.cca.api.v3.entity.EntityComponentFactoryRegistry;
 import org.ladysnake.cca.api.v3.entity.EntityComponentInitializer;
 import org.ladysnake.cca.api.v3.world.WorldComponentFactoryRegistry;
@@ -12,6 +11,6 @@ public class ThaumaturgyComponents implements EntityComponentInitializer, WorldC
     }
 
     public void registerWorldComponentFactories(WorldComponentFactoryRegistry registry) {
-        registry.register(ToLiveEternityWorldEventComponent.KEY, ToLiveEternityWorldEventComponent::new);
+
     }
 }

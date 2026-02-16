@@ -18,6 +18,9 @@
     "main": [
       "net.chemthunder.thaumaturgy.impl.Thaumaturgy"
     ],
+    "client": [
+      "net.chemthunder.thaumaturgy.impl.ThaumaturgyClient"
+    ],
     "fabric-datagen": [
       "net.chemthunder.thaumaturgy.data.ThaumaturgyDataGenerator"
     ],

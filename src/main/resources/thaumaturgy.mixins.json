@@ -11,8 +11,5 @@
     "requireAnnotations": true
   },
   "client": [
-    "eternity.ClientWorldMixin",
-    "eternity.OverworldDimensionEffectsMixin",
-    "eternity.WorldRendererMixin"
   ]
 }

@@ -1,5 +1,8 @@
 package net.chemthunder.thaumaturgy.impl;
 
+import net.chemthunder.thaumaturgy.impl.index.ThaumaturgyBlockEntities;
+import net.chemthunder.thaumaturgy.impl.index.ThaumaturgyBlocks;
+import net.chemthunder.thaumaturgy.impl.index.ThaumaturgyDataComponents;
 import net.chemthunder.thaumaturgy.impl.index.ThaumaturgyItems;
 import net.fabricmc.api.ModInitializer;
 
@@ -15,8 +18,10 @@ public class Thaumaturgy implements ModInitializer {
     }
 
 	public void onInitialize() {
-
         ThaumaturgyItems.init();
+        ThaumaturgyBlocks.init();
+        ThaumaturgyBlockEntities.init();
+        ThaumaturgyDataComponents.init();
 
 		LOGGER.info("Hello Fabric world!");
 	}
