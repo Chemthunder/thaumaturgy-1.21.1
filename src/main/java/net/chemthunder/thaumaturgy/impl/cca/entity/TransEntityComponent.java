@@ -1,7 +1,10 @@
 package net.chemthunder.thaumaturgy.impl.cca.entity;
 
+import net.acoyt.acornlib.impl.index.AcornAttributes;
 import net.chemthunder.thaumaturgy.impl.Thaumaturgy;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.attribute.AttributeContainer;
+import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.RegistryWrapper;
 import org.ladysnake.cca.api.v3.component.ComponentKey;
@@ -25,7 +28,9 @@ public class TransEntityComponent implements AutoSyncedComponent, CommonTickingC
     public void tick() {
         if (this.transTicks > 0) {
             transTicks--;
+            livingEntity.getAttributes().setFrom(new AttributeContainer(DefaultAttributeContainer.builder().add(AcornAttributes.OPACITY, 0.5f).build()));
             if (this.transTicks == 0) {
+                livingEntity.getAttributes().setFrom(new AttributeContainer(DefaultAttributeContainer.builder().add(AcornAttributes.OPACITY, 1.0f).build()));
                 this.sync();
             }
         }

@@ -28,7 +28,7 @@ public class ThaumaturgyLangGen extends FabricLanguageProvider {
         translationBuilder.add("pouch.fail_load", "This item cannot be used for Pouches!");
         translationBuilder.add("hidden.text.hold_alt.1", "Hold down [ALT] to see");
         translationBuilder.add("hidden.text.hold_alt.2", "thaumaturgical properties.");
-        translationBuilder.add("thauma.property", "Property - ");
+        translationBuilder.add("thaumaturgy.property", "Property - ");
         translationBuilder.add("itemGroup.thaumaturgy", "Thaumaturgy");
 
         // damage type
@@ -38,6 +38,10 @@ public class ThaumaturgyLangGen extends FabricLanguageProvider {
                 "%1$s bled out whilst fighting %2$s wielding %3$s",
                 "%1$s bled out %2$s"
         );
+
+        // midnight config
+        translationBuilder.add("thaumaturgy.midnightconfig.title", "Title");
+        translationBuilder.add("thaumaturgy.midnightconfig.showPronouns", "Show pronouns for ingredients");
     }
 
     public void registerDamageType(TranslationBuilder builder, RegistryKey<DamageType> registryKey, String normal, String item, String player) {

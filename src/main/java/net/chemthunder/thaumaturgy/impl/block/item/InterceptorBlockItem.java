@@ -8,9 +8,9 @@ import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 
 public class InterceptorBlockItem extends BlockItem implements ColorableItem {
-    public int startColor(ItemStack itemStack) {return 0xFFfff77e;}
+    public int startColor(ItemStack itemStack) {return 0xFFffcc00;}
     public int endColor(ItemStack itemStack) {return 0xFFfffaab;}
-    public int backgroundColor(ItemStack itemStack) {return 0xF0030a06;}
+    public int backgroundColor(ItemStack itemStack) {return 0xF00b261a;}
 
     public InterceptorBlockItem(Block block, Settings settings) {
         super(block, settings);

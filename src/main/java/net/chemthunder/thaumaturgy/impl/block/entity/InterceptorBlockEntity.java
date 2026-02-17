@@ -1,5 +1,6 @@
 package net.chemthunder.thaumaturgy.impl.block.entity;
 
+import net.chemthunder.thaumaturgy.impl.cca.entity.GlowingEntityComponent;
 import net.chemthunder.thaumaturgy.impl.cca.entity.TransEntityComponent;
 import net.chemthunder.thaumaturgy.impl.index.ThaumaturgyBlockEntities;
 import net.chemthunder.thaumaturgy.impl.index.ThaumaturgyEffects;
@@ -76,7 +77,14 @@ public class InterceptorBlockEntity extends BlockEntity {
         }
 
         if (variation == RitualUtils.RitualVariation.LUMINOUS) {
+            for (LivingEntity living : entities) {
+                if (living != placer) {
+                    GlowingEntityComponent gec = GlowingEntityComponent.KEY.get(living);
 
+                    gec.glowTicks = 700;
+                    gec.sync();
+                }
+            }
         }
 
         if (variation == RitualUtils.RitualVariation.CARRION) {

@@ -6,6 +6,7 @@ import net.chemthunder.thaumaturgy.impl.block.entity.InterceptorBlockEntity;
 import net.chemthunder.thaumaturgy.impl.index.ThaumaturgyItems;
 import net.chemthunder.thaumaturgy.impl.index.tag.ThaumaturgyItemTags;
 import net.chemthunder.thaumaturgy.impl.util.RitualUtils;
+import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BlockWithEntity;
 import net.minecraft.block.entity.BlockEntity;
@@ -55,6 +56,7 @@ public class InterceptorBlock extends BlockWithEntity {
                     );
 
                     RitualUtils.RitualVariation variation = RitualUtils.getRitualVariation(offStack);
+                    if (!player.isInCreativeMode()) offStack.split(1);
                     if (variation != null) {
                         be.startRitual(world, pos, player, be, variation);
                         Thaumaturgy.LOGGER.info("Ran ritual: {}", variation.asString());
@@ -66,5 +68,7 @@ public class InterceptorBlock extends BlockWithEntity {
         return super.onUse(state, world, pos, player, hit);
     }
 
-
+    protected BlockRenderType getRenderType(BlockState state) {
+        return BlockRenderType.MODEL;
+    }
 }

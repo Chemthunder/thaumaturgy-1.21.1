@@ -35,12 +35,14 @@
   },
   "custom": {
     "cardinal-components": [
-      "thaumaturgy:trans"
+      "thaumaturgy:trans",
+      "thaumaturgy:glowing"
     ],
 
     "modmenu": {
       "links": {
-        "get Weezer'd or smth idfk": "https://music.youtube.com/watch?v=cQzMHhRCTYw"
+        "get Weezer'd or smth idfk": "https://music.youtube.com/watch?v=cQzMHhRCTYw",
+        "Tumblr": "https://tumblr.com/chemthunder"
       },
       "update_checker": false
     }

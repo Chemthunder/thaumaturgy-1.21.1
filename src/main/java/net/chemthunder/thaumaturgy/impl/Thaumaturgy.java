@@ -1,6 +1,9 @@
 package net.chemthunder.thaumaturgy.impl;
 
+import eu.midnightdust.lib.config.MidnightConfig;
+import net.acoyt.acornlib.api.ALib;
 import net.chemthunder.thaumaturgy.impl.index.*;
+import net.chemthunder.thaumaturgy.impl.util.ThaumaConfig;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
@@ -21,6 +24,10 @@ public class Thaumaturgy implements ModInitializer {
         ThaumaturgyEffects.init();
         ThaumaturgyItemGroups.init();
 
-		LOGGER.info("Hello Fabric world!");
+        MidnightConfig.init(MOD_ID, ThaumaConfig.class);
+
+		LOGGER.info("\uD83C\uDF3B " + MOD_ID + " has been started");
+
+        ALib.registerModMenu(MOD_ID, 0x1c5b39);
 	}
 }

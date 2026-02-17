@@ -1,5 +1,8 @@
 {
   "block.thaumaturgy.interceptor": "Interceptor",
+  "death.attack.sacrifice": "%1$s bled out",
+  "death.attack.sacrifice.item": "%1$s bled out whilst fighting %2$s wielding %3$s",
+  "death.attack.sacrifice.player": "%1$s bled out %2$s",
   "hidden.text.hold_alt.1": "Hold down [ALT] to see",
   "hidden.text.hold_alt.2": "thaumaturgical properties.",
   "item.thaumaturgy.flowery_doll": "Flowery Doll",
@@ -7,5 +10,7 @@
   "item.thaumaturgy.sacrificial_knife": "Sacrificial Knife",
   "itemGroup.thaumaturgy": "Thaumaturgy",
   "pouch.fail_load": "This item cannot be used for Pouches!",
-  "thauma.property": "Property - "
+  "thaumaturgy.midnightconfig.showPronouns": "Show pronouns for ingredients",
+  "thaumaturgy.midnightconfig.title": "Title",
+  "thaumaturgy.property": "Property - "
 }
