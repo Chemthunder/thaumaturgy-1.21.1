@@ -1,7 +1,6 @@
 package net.chemthunder.thaumaturgy.impl.block.item;
 
 import com.nitron.nitrogen.util.interfaces.ColorableItem;
-import net.chemthunder.thaumaturgy.api.item.ThaumaturgicalItem;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemStack;

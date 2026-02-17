@@ -1,7 +1,6 @@
 package net.chemthunder.thaumaturgy.impl.index;
 
 import net.chemthunder.thaumaturgy.impl.Thaumaturgy;
-import net.chemthunder.thaumaturgy.impl.item.SacrificialKnifeItem;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;

@@ -2,7 +2,6 @@ package net.chemthunder.thaumaturgy.impl.cca;
 
 import net.chemthunder.thaumaturgy.impl.cca.entity.TransEntityComponent;
 import net.minecraft.entity.LivingEntity;
-import org.ladysnake.cca.api.v3.component.ComponentKey;
 import org.ladysnake.cca.api.v3.entity.EntityComponentFactoryRegistry;
 import org.ladysnake.cca.api.v3.entity.EntityComponentInitializer;
 import org.ladysnake.cca.api.v3.entity.RespawnCopyStrategy;
