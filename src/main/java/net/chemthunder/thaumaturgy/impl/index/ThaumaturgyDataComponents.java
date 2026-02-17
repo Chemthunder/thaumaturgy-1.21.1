@@ -1,13 +1,11 @@
 package net.chemthunder.thaumaturgy.impl.index;
 
-import com.mojang.serialization.Codec;
 import net.chemthunder.thaumaturgy.impl.Thaumaturgy;
 import net.minecraft.component.ComponentType;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 
-import java.util.List;
 import java.util.function.UnaryOperator;
 
 public interface ThaumaturgyDataComponents {

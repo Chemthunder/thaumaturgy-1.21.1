@@ -4,11 +4,10 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryWrapper;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
 
-import static net.chemthunder.thaumaturgy.impl.index.tag.ThaumaturgyItemTags.*;
+import static net.chemthunder.thaumaturgy.impl.index.tag.ThaumaturgyItemTags.ACCEPTABLE;
 
 public class ThaumaturgyItemTagGen extends FabricTagProvider.ItemTagProvider {
     public ThaumaturgyItemTagGen(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> completableFuture) {

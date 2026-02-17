@@ -1,4 +1,11 @@
 {
+  "block.thaumaturgy.interceptor": "Interceptor",
+  "hidden.text.hold_alt.1": "Hold down [ALT] to see",
+  "hidden.text.hold_alt.2": "thaumaturgical properties.",
+  "item.thaumaturgy.flowery_doll": "Flowery Doll",
   "item.thaumaturgy.pouch": "Pouch",
-  "pouch.fail_load": "This item cannot be used for Pouches!"
+  "item.thaumaturgy.sacrificial_knife": "Sacrificial Knife",
+  "itemGroup.thaumaturgy": "Thaumaturgy",
+  "pouch.fail_load": "This item cannot be used for Pouches!",
+  "thauma.property": "Property - "
 }

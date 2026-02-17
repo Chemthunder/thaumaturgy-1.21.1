@@ -1,9 +1,59 @@
 package net.chemthunder.thaumaturgy.impl.block;
 
-import net.minecraft.block.Block;
+import com.mojang.serialization.MapCodec;
+import net.chemthunder.thaumaturgy.impl.Thaumaturgy;
+import net.chemthunder.thaumaturgy.impl.block.entity.InterceptorBlockEntity;
+import net.chemthunder.thaumaturgy.impl.index.ThaumaturgyItems;
+import net.chemthunder.thaumaturgy.impl.index.tag.ThaumaturgyItemTags;
+import net.chemthunder.thaumaturgy.impl.util.RitualUtils;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.BlockWithEntity;
+import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.hit.BlockHitResult;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 
-public class InterceptorBlock extends Block {
+public class InterceptorBlock extends BlockWithEntity {
+    public static final MapCodec<InterceptorBlock> CODEC = createCodec(InterceptorBlock::new);
+    protected MapCodec<? extends BlockWithEntity> getCodec() {return CODEC;}
+
+
     public InterceptorBlock(Settings settings) {
         super(settings);
+    }
+
+    public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
+        return new InterceptorBlockEntity(pos, state);
+    }
+
+    protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
+        ItemStack mainStack = player.getMainHandStack();
+        ItemStack offStack = player.getOffHandStack();
+
+        if (world.getBlockEntity(pos) instanceof InterceptorBlockEntity be) {
+            if (mainStack.isOf(ThaumaturgyItems.SACRIFICIAL_KNIFE) && offStack.isIn(ThaumaturgyItemTags.ACCEPTABLE)) {
+                RitualUtils.RitualVariation variation = null;
+
+                if (offStack.isOf(Items.POPPY)) {
+                    variation = RitualUtils.RitualVariation.NARCOTIC;
+                }
+
+                if (offStack.isOf(Items.PEONY)) {
+                    variation = RitualUtils.RitualVariation.TRANSCENDANT;
+                }
+
+                if (variation != null) {
+                    be.startRitual(world, pos, player, be, variation);
+                    Thaumaturgy.LOGGER.info("Ran ritual: " + variation.asString());
+                    return ActionResult.FAIL;
+                }
+            }
+        }
+        return super.onUse(state, world, pos, player, hit);
     }
 }

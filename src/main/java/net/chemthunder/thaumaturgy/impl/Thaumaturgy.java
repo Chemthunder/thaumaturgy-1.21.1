@@ -1,11 +1,7 @@
 package net.chemthunder.thaumaturgy.impl;
 
-import net.chemthunder.thaumaturgy.impl.index.ThaumaturgyBlockEntities;
-import net.chemthunder.thaumaturgy.impl.index.ThaumaturgyBlocks;
-import net.chemthunder.thaumaturgy.impl.index.ThaumaturgyDataComponents;
-import net.chemthunder.thaumaturgy.impl.index.ThaumaturgyItems;
+import net.chemthunder.thaumaturgy.impl.index.*;
 import net.fabricmc.api.ModInitializer;
-
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,6 +18,8 @@ public class Thaumaturgy implements ModInitializer {
         ThaumaturgyBlocks.init();
         ThaumaturgyBlockEntities.init();
         ThaumaturgyDataComponents.init();
+        ThaumaturgyEffects.init();
+        ThaumaturgyItemGroups.init();
 
 		LOGGER.info("Hello Fabric world!");
 	}
