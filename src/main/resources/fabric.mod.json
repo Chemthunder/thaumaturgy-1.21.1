@@ -3,14 +3,10 @@
   "id": "thaumaturgy",
   "version": "${version}",
   "name": "Thaumaturgy",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "description": "They're turning the flowers gay",
   "authors": [
-    "Me!"
+    "Chemthunder"
   ],
-  "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
-  },
   "license": "CC0-1.0",
   "icon": "assets/thaumaturgy/icon.png",
   "environment": "*",
@@ -40,6 +36,13 @@
   "custom": {
     "cardinal-components": [
       "thaumaturgy:trans"
-    ]
+    ],
+
+    "modmenu": {
+      "links": {
+        "get Weezer'd or smth idfk": "https://music.youtube.com/watch?v=cQzMHhRCTYw"
+      },
+      "update_checker": false
+    }
   }
 }

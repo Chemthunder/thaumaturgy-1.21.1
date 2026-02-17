@@ -9,6 +9,8 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.particle.ParticleTypes;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.world.World;
@@ -29,6 +31,18 @@ public class InterceptorBlockEntity extends BlockEntity {
             for (LivingEntity entity : entities) {
                 if (entity != placer) {
                     entity.addStatusEffect(new StatusEffectInstance(ThaumaturgyEffects.DEADWALK, 200, 0));
+                    if (entity.getWorld() instanceof ServerWorld serverWorld) {
+                        serverWorld.spawnParticles(ParticleTypes.END_ROD,
+                                entity.getX(),
+                                entity.getY() + 1.5f,
+                                entity.getZ(),
+                                9,
+                                0.02,
+                                0.02,
+                                0.02,
+                                0.03
+                        );
+                    }
                 }
             }
         }

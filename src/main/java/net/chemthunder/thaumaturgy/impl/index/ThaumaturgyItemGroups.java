@@ -1,11 +1,13 @@
 package net.chemthunder.thaumaturgy.impl.index;
 
 import net.chemthunder.thaumaturgy.impl.Thaumaturgy;
+import net.chemthunder.thaumaturgy.impl.index.tag.ThaumaturgyItemTags;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
@@ -33,5 +35,11 @@ public interface ThaumaturgyItemGroups {
         itemGroup.add(POUCH);
 
         itemGroup.add(ThaumaturgyBlocks.INTERCEPTOR);
+
+        itemGroup.add(Items.POPPY);
+        itemGroup.add(Items.CORNFLOWER);
+        itemGroup.add(Items.DANDELION);
+        itemGroup.add(Items.PEONY);
+        itemGroup.add(Items.ALLIUM);
     }
 }

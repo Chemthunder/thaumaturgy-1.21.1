@@ -12,6 +12,10 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.particle.ParticleTypes;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -34,23 +38,35 @@ public class InterceptorBlock extends BlockWithEntity {
     protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
         ItemStack mainStack = player.getMainHandStack();
         ItemStack offStack = player.getOffHandStack();
+        if (world instanceof ServerWorld serverWorld) {
+            if (world.getBlockEntity(pos) instanceof InterceptorBlockEntity be) {
+                if (mainStack.isOf(ThaumaturgyItems.SACRIFICIAL_KNIFE) && offStack.isIn(ThaumaturgyItemTags.ACCEPTABLE)) {
+                    RitualUtils.RitualVariation variation = null;
 
-        if (world.getBlockEntity(pos) instanceof InterceptorBlockEntity be) {
-            if (mainStack.isOf(ThaumaturgyItems.SACRIFICIAL_KNIFE) && offStack.isIn(ThaumaturgyItemTags.ACCEPTABLE)) {
-                RitualUtils.RitualVariation variation = null;
+                    if (offStack.isOf(Items.POPPY)) {variation = RitualUtils.RitualVariation.NARCOTIC;}
+                    if (offStack.isOf(Items.PEONY)) {variation = RitualUtils.RitualVariation.TRANSCENDANT;}
 
-                if (offStack.isOf(Items.POPPY)) {
-                    variation = RitualUtils.RitualVariation.NARCOTIC;
-                }
+                    world.playSound(null, pos, SoundEvents.BLOCK_MANGROVE_ROOTS_BREAK, SoundCategory.BLOCKS, 1, 1);
+                    world.playSound(null, pos, SoundEvents.BLOCK_ENCHANTMENT_TABLE_USE, SoundCategory.BLOCKS, 1, 1);
+                    world.playSound(null, pos, SoundEvents.ITEM_TRIDENT_THUNDER.value(), SoundCategory.BLOCKS, 1, 3);
 
-                if (offStack.isOf(Items.PEONY)) {
-                    variation = RitualUtils.RitualVariation.TRANSCENDANT;
-                }
 
-                if (variation != null) {
-                    be.startRitual(world, pos, player, be, variation);
-                    Thaumaturgy.LOGGER.info("Ran ritual: " + variation.asString());
-                    return ActionResult.FAIL;
+                    serverWorld.spawnParticles(ParticleTypes.END_ROD,
+                            pos.getX() + 0.5f,
+                            pos.getY() + 1.5f,
+                            pos.getZ() + 0.5f,
+                            9,
+                            0.02,
+                            0.02,
+                            0.02,
+                            0.03
+                    );
+
+                    if (variation != null) {
+                        be.startRitual(world, pos, player, be, variation);
+                        Thaumaturgy.LOGGER.info("Ran ritual: " + variation.asString());
+                    }
+                    return ActionResult.SUCCESS;
                 }
             }
         }
