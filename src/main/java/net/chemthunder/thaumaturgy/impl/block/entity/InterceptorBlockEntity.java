@@ -3,6 +3,7 @@ package net.chemthunder.thaumaturgy.impl.block.entity;
 import net.chemthunder.thaumaturgy.impl.cca.entity.TransEntityComponent;
 import net.chemthunder.thaumaturgy.impl.index.ThaumaturgyBlockEntities;
 import net.chemthunder.thaumaturgy.impl.index.ThaumaturgyEffects;
+import net.chemthunder.thaumaturgy.impl.index.data.ThaumaturgyDamageTypes;
 import net.chemthunder.thaumaturgy.impl.util.RitualUtils;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
@@ -11,6 +12,8 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.world.World;
@@ -24,10 +27,10 @@ public class InterceptorBlockEntity extends BlockEntity {
     }
 
     public void startRitual(World world, BlockPos pos, PlayerEntity placer, @NotNull InterceptorBlockEntity be, RitualUtils.RitualVariation variation) {
-        if (variation == RitualUtils.RitualVariation.NARCOTIC) {
-            Box area = new Box(pos).expand(10);
-            List<LivingEntity> entities = world.getEntitiesByClass(LivingEntity.class, area, entity -> true);
+        Box area = new Box(pos).expand(10);
+        List<LivingEntity> entities = world.getEntitiesByClass(LivingEntity.class, area, entity -> true);
 
+        if (variation == RitualUtils.RitualVariation.NARCOTIC) {
             for (LivingEntity entity : entities) {
                 if (entity != placer) {
                     entity.addStatusEffect(new StatusEffectInstance(ThaumaturgyEffects.DEADWALK, 200, 0));
@@ -48,15 +51,36 @@ public class InterceptorBlockEntity extends BlockEntity {
         }
 
         if (variation == RitualUtils.RitualVariation.TRANSCENDANT) {
-            Box area = new Box(pos).expand(10);
-            List<LivingEntity> entities = world.getEntitiesByClass(LivingEntity.class, area, entity -> true);
-
             for (LivingEntity entity : entities) {
                 TransEntityComponent tec = TransEntityComponent.KEY.get(entity);
 
                 tec.transTicks = 200;
                 tec.sync();
             }
+        }
+
+        if (variation == RitualUtils.RitualVariation.WARDING) {
+
+        }
+
+        if (variation == RitualUtils.RitualVariation.ABUNDANCE) {
+            int givenXp = 0;
+            for (LivingEntity entity : entities) {
+                if (entity != placer) {
+                    givenXp++;
+                    entity.damage(entity.getDamageSources().create(ThaumaturgyDamageTypes.SACRIFICE), givenXp);
+                }
+            }
+
+            placer.addExperience(givenXp);
+        }
+
+        if (variation == RitualUtils.RitualVariation.LUMINOUS) {
+
+        }
+
+        if (variation == RitualUtils.RitualVariation.CARRION) {
+
         }
     }
 }

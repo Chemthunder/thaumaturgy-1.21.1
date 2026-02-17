@@ -51,6 +51,14 @@ public abstract class ItemMixin implements ToggleableFeature, ItemConvertible, F
             variation = RitualUtils.RitualVariation.NARCOTIC;
         } else if (stack.isOf(Items.PEONY)) {
             variation = RitualUtils.RitualVariation.TRANSCENDANT;
+        } else if (stack.isOf(Items.ALLIUM)) {
+            variation = RitualUtils.RitualVariation.WARDING;
+        } else if (stack.isOf(Items.TORCHFLOWER)) {
+            variation = RitualUtils.RitualVariation.LUMINOUS;
+        } else if (stack.isOf(Items.WITHER_ROSE)) {
+            variation = RitualUtils.RitualVariation.CARRION;
+        } else if (stack.isOf(Items.CORNFLOWER)) {
+            variation = RitualUtils.RitualVariation.ABUNDANCE;
         } else {
             variation = RitualUtils.RitualVariation.EMPTY;
         }
@@ -63,6 +71,10 @@ public abstract class ItemMixin implements ToggleableFeature, ItemConvertible, F
         return switch(variation) {
             case NARCOTIC -> 0xFF9d0035;
             case TRANSCENDANT -> 0xFFff9bfd;
+            case WARDING -> 0xFFa30cc4;
+            case LUMINOUS -> 0xFFffaa00;
+            case CARRION -> 0xFF400300;
+            case ABUNDANCE -> 0xFF5971de;
             case EMPTY -> 0xFF58ca8d;
         };
     }
@@ -72,6 +84,10 @@ public abstract class ItemMixin implements ToggleableFeature, ItemConvertible, F
         return switch (variation) {
             case NARCOTIC -> "he/they";
             case TRANSCENDANT -> "she/her";
+            case WARDING -> "she/they";
+            case LUMINOUS -> "he/him";
+            case CARRION -> "it/its";
+            case ABUNDANCE -> "he/she";
             case EMPTY -> "any/all";
         };
     }

@@ -15,12 +15,14 @@ public class ThaumaturgyItemTagGen extends FabricTagProvider.ItemTagProvider {
     }
 
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
-       this.getOrCreateTagBuilder(ACCEPTABLE)
+        this.getOrCreateTagBuilder(ACCEPTABLE)
                 .add(Items.POPPY)
                 .add(Items.DANDELION)
                 .add(Items.PEONY)
                 .add(Items.CORNFLOWER)
                 .add(Items.ALLIUM)
+                .add(Items.WITHER_ROSE)
+                .add(Items.TORCHFLOWER)
                 .setReplace(false);
     }
 }

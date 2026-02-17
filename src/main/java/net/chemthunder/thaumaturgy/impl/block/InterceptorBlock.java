@@ -11,7 +11,6 @@ import net.minecraft.block.BlockWithEntity;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
@@ -25,7 +24,6 @@ import org.jetbrains.annotations.Nullable;
 public class InterceptorBlock extends BlockWithEntity {
     public static final MapCodec<InterceptorBlock> CODEC = createCodec(InterceptorBlock::new);
     protected MapCodec<? extends BlockWithEntity> getCodec() {return CODEC;}
-
 
     public InterceptorBlock(Settings settings) {
         super(settings);
@@ -41,15 +39,9 @@ public class InterceptorBlock extends BlockWithEntity {
         if (world instanceof ServerWorld serverWorld) {
             if (world.getBlockEntity(pos) instanceof InterceptorBlockEntity be) {
                 if (mainStack.isOf(ThaumaturgyItems.SACRIFICIAL_KNIFE) && offStack.isIn(ThaumaturgyItemTags.ACCEPTABLE)) {
-                    RitualUtils.RitualVariation variation = null;
-
-                    if (offStack.isOf(Items.POPPY)) {variation = RitualUtils.RitualVariation.NARCOTIC;}
-                    if (offStack.isOf(Items.PEONY)) {variation = RitualUtils.RitualVariation.TRANSCENDANT;}
-
                     world.playSound(null, pos, SoundEvents.BLOCK_MANGROVE_ROOTS_BREAK, SoundCategory.BLOCKS, 1, 1);
                     world.playSound(null, pos, SoundEvents.BLOCK_ENCHANTMENT_TABLE_USE, SoundCategory.BLOCKS, 1, 1);
                     world.playSound(null, pos, SoundEvents.ITEM_TRIDENT_THUNDER.value(), SoundCategory.BLOCKS, 1, 3);
-
 
                     serverWorld.spawnParticles(ParticleTypes.END_ROD,
                             pos.getX() + 0.5f,
@@ -62,9 +54,10 @@ public class InterceptorBlock extends BlockWithEntity {
                             0.03
                     );
 
+                    RitualUtils.RitualVariation variation = RitualUtils.getRitualVariation(offStack);
                     if (variation != null) {
                         be.startRitual(world, pos, player, be, variation);
-                        Thaumaturgy.LOGGER.info("Ran ritual: " + variation.asString());
+                        Thaumaturgy.LOGGER.info("Ran ritual: {}", variation.asString());
                     }
                     return ActionResult.SUCCESS;
                 }
@@ -72,4 +65,6 @@ public class InterceptorBlock extends BlockWithEntity {
         }
         return super.onUse(state, world, pos, player, hit);
     }
+
+
 }
