@@ -15,7 +15,7 @@ public class RitualUtils {
         LUMINOUS("Luminous"), // torchflower
         CARRION("Carrion"), // wither rose
         ABUNDANCE("Abundance"), // cornflower
-        OVERCLOCK("Overclock"),
+        OVERCLOCK("Overclock"), // dandelion
         EMPTY("Empty");
 
         private final String id;
