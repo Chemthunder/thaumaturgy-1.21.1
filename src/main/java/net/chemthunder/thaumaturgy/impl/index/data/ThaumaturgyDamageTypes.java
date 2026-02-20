@@ -2,7 +2,6 @@ package net.chemthunder.thaumaturgy.impl.index.data;
 
 import net.chemthunder.thaumaturgy.impl.Thaumaturgy;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.damage.DamageScaling;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.damage.DamageType;
 import net.minecraft.registry.Registerable;

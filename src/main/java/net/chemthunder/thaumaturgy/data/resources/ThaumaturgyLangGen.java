@@ -1,5 +1,6 @@
 package net.chemthunder.thaumaturgy.data.resources;
 
+import net.chemthunder.thaumaturgy.impl.index.ThaumaturgyEntities;
 import net.chemthunder.thaumaturgy.impl.index.data.ThaumaturgyDamageTypes;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
@@ -10,6 +11,7 @@ import net.minecraft.registry.RegistryWrapper;
 import java.util.concurrent.CompletableFuture;
 
 import static net.chemthunder.thaumaturgy.impl.index.ThaumaturgyItems.*;
+import static net.chemthunder.thaumaturgy.impl.index.ThaumaturgyEffects.*;
 
 public class ThaumaturgyLangGen extends FabricLanguageProvider {
     public ThaumaturgyLangGen(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
@@ -19,17 +21,25 @@ public class ThaumaturgyLangGen extends FabricLanguageProvider {
     public void generateTranslations(RegistryWrapper.WrapperLookup wrapperLookup, TranslationBuilder translationBuilder) {
         // items
         translationBuilder.add(POUCH, "Pouch");
+
         translationBuilder.add(SACRIFICIAL_KNIFE, "Sacrificial Knife");
-        translationBuilder.add(FLOWERY_DOLL, "Flowery Doll");
+        translationBuilder.add("knife.desc_0", "A fine tool useful in thaumaturgical");
+        translationBuilder.add("knife.desc_1", "rituals and rites.");
+
         translationBuilder.add(INTERCEPTOR_ITEM, "Interceptor");
 
-
         // misc
+        translationBuilder.add("itemGroup.thaumaturgy", "Thaumaturgy");
+        translationBuilder.add("pouch.contents.readout", "Contents: ");
+
+        // ritual
         translationBuilder.add("pouch.fail_load", "This item cannot be used for Pouches!");
         translationBuilder.add("hidden.text.hold_alt.1", "Hold down [ALT] to see");
         translationBuilder.add("hidden.text.hold_alt.2", "thaumaturgical properties.");
         translationBuilder.add("thaumaturgy.property", "Property - ");
-        translationBuilder.add("itemGroup.thaumaturgy", "Thaumaturgy");
+
+        // entities
+        translationBuilder.add(ThaumaturgyEntities.POUCH, "Pouch");
 
         // damage type
         registerDamageType(translationBuilder,
@@ -38,6 +48,10 @@ public class ThaumaturgyLangGen extends FabricLanguageProvider {
                 "%1$s bled out whilst fighting %2$s wielding %3$s",
                 "%1$s bled out %2$s"
         );
+
+        // effects
+        translationBuilder.add("effect.thaumaturgy.deadwalk", "Deadwalk");
+        translationBuilder.add("effect.thaumaturgy.overclock", "Overclock");
 
         // midnight config
         translationBuilder.add("thaumaturgy.midnightconfig.title", "Title");

@@ -56,7 +56,11 @@ public class InterceptorBlock extends BlockWithEntity {
                     );
 
                     RitualUtils.RitualVariation variation = RitualUtils.getRitualVariation(offStack);
-                    if (!player.isInCreativeMode()) offStack.split(1);
+                    if (!player.isInCreativeMode()) {
+                        offStack.split(1);
+                        player.getItemCooldownManager().set(ThaumaturgyItems.SACRIFICIAL_KNIFE, 90);
+                    }
+
                     if (variation != null) {
                         be.startRitual(world, pos, player, be, variation);
                         Thaumaturgy.LOGGER.info("Ran ritual: {}", variation.asString());

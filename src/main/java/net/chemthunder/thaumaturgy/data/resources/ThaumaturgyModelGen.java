@@ -6,7 +6,6 @@ import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.Models;
 
-import static net.chemthunder.thaumaturgy.impl.index.ThaumaturgyItems.POUCH;
 import static net.chemthunder.thaumaturgy.impl.index.ThaumaturgyItems.SACRIFICIAL_KNIFE;
 
 public class ThaumaturgyModelGen extends FabricModelProvider {
@@ -19,7 +18,6 @@ public class ThaumaturgyModelGen extends FabricModelProvider {
     }
 
     public void generateItemModels(ItemModelGenerator generator) {
-        generator.register(POUCH, Models.GENERATED);
-        generator.register(SACRIFICIAL_KNIFE, Models.GENERATED);
+        generator.register(SACRIFICIAL_KNIFE, Models.HANDHELD);
     }
 }

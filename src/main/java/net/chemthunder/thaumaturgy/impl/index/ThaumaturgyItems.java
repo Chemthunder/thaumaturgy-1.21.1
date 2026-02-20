@@ -2,7 +2,6 @@ package net.chemthunder.thaumaturgy.impl.index;
 
 import net.chemthunder.thaumaturgy.impl.Thaumaturgy;
 import net.chemthunder.thaumaturgy.impl.block.item.InterceptorBlockItem;
-import net.chemthunder.thaumaturgy.impl.item.FloweryDollItem;
 import net.chemthunder.thaumaturgy.impl.item.PouchItem;
 import net.chemthunder.thaumaturgy.impl.item.SacrificialKnifeItem;
 import net.minecraft.item.BlockItem;
@@ -13,11 +12,8 @@ import net.minecraft.registry.Registry;
 import java.util.function.Function;
 
 public interface ThaumaturgyItems {
-    Item FLOWERY_DOLL = create("flowery_doll", FloweryDollItem::new, new Item.Settings().maxCount(1));
     Item POUCH = create("pouch", PouchItem::new, new Item.Settings().maxCount(1));
-    Item SACRIFICIAL_KNIFE = create("sacrificial_knife", SacrificialKnifeItem::new, new Item.Settings().maxCount(1));
-
-
+    Item SACRIFICIAL_KNIFE = create("sacrificial_knife", SacrificialKnifeItem::new, new Item.Settings().maxCount(1).attributeModifiers(SacrificialKnifeItem.createAttributeModifiers()));
     Item INTERCEPTOR_ITEM = create("interceptor", settings -> new InterceptorBlockItem(ThaumaturgyBlocks.INTERCEPTOR, settings), new Item.Settings());
 
     static Item create(String name, Function<Item.Settings, Item> factory, Item.Settings settings) {

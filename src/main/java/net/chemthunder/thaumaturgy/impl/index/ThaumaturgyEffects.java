@@ -9,7 +9,8 @@ import net.minecraft.registry.Registry;
 import net.minecraft.registry.entry.RegistryEntry;
 
 public interface ThaumaturgyEffects {
-    RegistryEntry<StatusEffect> DEADWALK = create("deadwalk", new StatusEffectBase(StatusEffectCategory.HARMFUL, 0xbd00d8));
+    RegistryEntry<StatusEffect> DEADWALK = create("deadwalk", new StatusEffectBase(StatusEffectCategory.HARMFUL, 0x701643));
+    RegistryEntry<StatusEffect> OVERCLOCK = create("overclock", new StatusEffectBase(StatusEffectCategory.BENEFICIAL, 0xffc725));
 
     private static RegistryEntry<StatusEffect> create(String name, StatusEffect statusEffect) {
         return Registry.registerReference(Registries.STATUS_EFFECT, Thaumaturgy.id(name), statusEffect);

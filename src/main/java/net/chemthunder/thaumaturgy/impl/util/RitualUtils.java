@@ -4,8 +4,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.util.StringIdentifiable;
-import org.jetbrains.annotations.Nullable;
-import org.spongepowered.asm.mixin.Unique;
 
 public class RitualUtils {
     public static final EnumProperty<RitualVariation> RITUAL_VARIATION = EnumProperty.of("ritual_variation", RitualVariation.class);
@@ -17,6 +15,7 @@ public class RitualUtils {
         LUMINOUS("Luminous"), // torchflower
         CARRION("Carrion"), // wither rose
         ABUNDANCE("Abundance"), // cornflower
+        OVERCLOCK("Overclock"),
         EMPTY("Empty");
 
         private final String id;
@@ -32,12 +31,13 @@ public class RitualUtils {
 
     public static RitualUtils.RitualVariation getRitualVariation(ItemStack offStack) {
         RitualUtils.RitualVariation variation = null;
-        if (offStack.isOf(Items.POPPY)) {variation = RitualUtils.RitualVariation.NARCOTIC;}
-        if (offStack.isOf(Items.PEONY)) {variation = RitualUtils.RitualVariation.TRANSCENDANT;}
-        if (offStack.isOf(Items.ALLIUM)) {variation = RitualUtils.RitualVariation.WARDING;}
-        if (offStack.isOf(Items.WITHER_ROSE)) {variation = RitualUtils.RitualVariation.CARRION;}
-        if (offStack.isOf(Items.TORCHFLOWER)) {variation = RitualUtils.RitualVariation.LUMINOUS;}
-        if (offStack.isOf(Items.CORNFLOWER)) {variation = RitualUtils.RitualVariation.ABUNDANCE;}
+        if (offStack.isOf(Items.POPPY)) {variation = RitualVariation.NARCOTIC;}
+        if (offStack.isOf(Items.PEONY)) {variation = RitualVariation.TRANSCENDANT;}
+        if (offStack.isOf(Items.ALLIUM)) {variation = RitualVariation.WARDING;}
+        if (offStack.isOf(Items.WITHER_ROSE)) {variation = RitualVariation.CARRION;}
+        if (offStack.isOf(Items.TORCHFLOWER)) {variation = RitualVariation.LUMINOUS;}
+        if (offStack.isOf(Items.CORNFLOWER)) {variation = RitualVariation.ABUNDANCE;}
+        if (offStack.isOf(Items.DANDELION)) {variation = RitualVariation.OVERCLOCK;}
 
         return variation;
     }
@@ -50,6 +50,7 @@ public class RitualUtils {
             case LUMINOUS -> "he/him";
             case CARRION -> "it/its";
             case ABUNDANCE -> "he/she";
+            case OVERCLOCK -> "they/them";
             case EMPTY -> "any/all";
         };
     }
@@ -62,6 +63,7 @@ public class RitualUtils {
             case LUMINOUS -> 0xFFffaa00;
             case CARRION -> 0xFF400300;
             case ABUNDANCE -> 0xFF5971de;
+            case OVERCLOCK -> 0xFFffe561;
             case EMPTY -> 0xFF58ca8d;
         };
     }

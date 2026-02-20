@@ -23,6 +23,6 @@ public class ThaumaturgyItemTagGen extends FabricTagProvider.ItemTagProvider {
                 .add(Items.ALLIUM)
                 .add(Items.WITHER_ROSE)
                 .add(Items.TORCHFLOWER)
-                .setReplace(false);
+                .setReplace(true);
     }
 }

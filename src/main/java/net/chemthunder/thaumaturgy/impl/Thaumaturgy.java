@@ -23,6 +23,8 @@ public class Thaumaturgy implements ModInitializer {
         ThaumaturgyDataComponents.init();
         ThaumaturgyEffects.init();
         ThaumaturgyItemGroups.init();
+        ThaumaturgyEntities.init();
+        ThaumaturgySounds.init();
 
         MidnightConfig.init(MOD_ID, ThaumaConfig.class);
 

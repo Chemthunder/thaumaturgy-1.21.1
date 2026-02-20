@@ -1,0 +1,8 @@
+{
+  "item.pouch_explode": {
+    "subtitle": "sounds.thaumaturgy.pouch_explode",
+    "sounds": [
+      "thaumaturgy:item/pouch_explode"
+    ]
+  }
+}

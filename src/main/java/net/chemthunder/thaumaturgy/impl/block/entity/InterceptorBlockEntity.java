@@ -10,10 +10,10 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
@@ -88,7 +88,18 @@ public class InterceptorBlockEntity extends BlockEntity {
         }
 
         if (variation == RitualUtils.RitualVariation.CARRION) {
+            for (LivingEntity living : entities) {
+                if (living != placer) {
+                    living.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER, 140));
+                    living.playSound(SoundEvents.ENTITY_WITHER_BREAK_BLOCK);
+                }
+            }
+        }
 
+        if (variation == RitualUtils.RitualVariation.OVERCLOCK) {
+            for (LivingEntity target : entities) {
+                target.addStatusEffect(new StatusEffectInstance(ThaumaturgyEffects.OVERCLOCK, 260));
+            }
         }
     }
 }

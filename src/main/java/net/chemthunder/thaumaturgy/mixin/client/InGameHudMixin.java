@@ -1,7 +1,12 @@
 package net.chemthunder.thaumaturgy.mixin.client;
 
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.chemthunder.thaumaturgy.impl.Thaumaturgy;
 import net.chemthunder.thaumaturgy.impl.cca.entity.TransEntityComponent;
+import net.chemthunder.thaumaturgy.impl.index.ThaumaturgyItems;
+import net.chemthunder.thaumaturgy.impl.index.ThaumaturgySounds;
+import net.chemthunder.thaumaturgy.impl.index.tag.ThaumaturgyItemTags;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.hud.InGameHud;
@@ -24,6 +29,9 @@ public abstract class InGameHudMixin {
     @Unique
     private static Identifier OVERLAY = Thaumaturgy.id("textures/render/trans_overlay.png");
 
+    @Unique
+    private final Identifier KNIFE_CROSSHAIR = Thaumaturgy.id("hud/knife_crosshair");
+
     @Inject(method = "renderMiscOverlays", at = @At("HEAD"))
     private void overlays(DrawContext context, RenderTickCounter tickCounter, CallbackInfo ci) {
         PlayerEntity player = MinecraftClient.getInstance().player;
@@ -33,6 +41,19 @@ public abstract class InGameHudMixin {
             if (ticks > 0) {
                 float opacity = ticks > 50 ? 1f : ticks / 50.0f;
                 this.renderOverlay(context, OVERLAY, opacity);
+            }
+        }
+    }
+
+    @WrapOperation(method = "renderCrosshair", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/DrawContext;drawGuiTexture(Lnet/minecraft/util/Identifier;IIII)V", ordinal = 0))
+    private void crosshairOverride(DrawContext instance, Identifier texture, int x, int y, int width, int height, Operation<Void> original) {
+        PlayerEntity player = MinecraftClient.getInstance().player;
+
+        if (player != null) {
+            if (player.getMainHandStack().isOf(ThaumaturgyItems.SACRIFICIAL_KNIFE) || player.getOffHandStack().isOf(ThaumaturgyItems.SACRIFICIAL_KNIFE)) {
+                original.call(instance, KNIFE_CROSSHAIR, x, y, width, height);
+            } else {
+                original.call(instance, texture, x, y, width, height);
             }
         }
     }

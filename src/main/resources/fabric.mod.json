@@ -7,6 +7,10 @@
   "authors": [
     "Chemthunder"
   ],
+  "contributors": [
+    "BushyBot5 - Pouch",
+    "eeverest - Sacrificial Knife"
+  ],
   "license": "CC0-1.0",
   "icon": "assets/thaumaturgy/icon.png",
   "environment": "*",

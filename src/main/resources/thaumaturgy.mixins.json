@@ -3,7 +3,8 @@
   "package": "net.chemthunder.thaumaturgy.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "ItemMixin"
+    "ItemMixin",
+    "ItemStackMixin"
   ],
   "injectors": {
     "defaultRequire": 1
