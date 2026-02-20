@@ -6,6 +6,7 @@ import net.chemthunder.thaumaturgy.impl.block.entity.InterceptorBlockEntity;
 import net.chemthunder.thaumaturgy.impl.index.ThaumaturgyItems;
 import net.chemthunder.thaumaturgy.impl.index.tag.ThaumaturgyItemTags;
 import net.chemthunder.thaumaturgy.impl.util.RitualUtils;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BlockWithEntity;
@@ -63,7 +64,10 @@ public class InterceptorBlock extends BlockWithEntity {
 
                     if (variation != null) {
                         be.startRitual(world, pos, player, be, variation);
-                        Thaumaturgy.LOGGER.info("Ran ritual: {}", variation.asString());
+
+                        if (FabricLoader.getInstance().isDevelopmentEnvironment()) {
+                            Thaumaturgy.LOGGER.info("Ran ritual: {}", variation.asString());
+                        }
                     }
                     return ActionResult.SUCCESS;
                 }
