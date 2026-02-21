@@ -41,35 +41,37 @@ public class InterceptorBlock extends BlockWithEntity {
         if (world instanceof ServerWorld serverWorld) {
             if (world.getBlockEntity(pos) instanceof InterceptorBlockEntity be) {
                 if (mainStack.isOf(ThaumaturgyItems.SACRIFICIAL_KNIFE) && offStack.isIn(ThaumaturgyItemTags.ACCEPTABLE)) {
-                    world.playSound(null, pos, SoundEvents.BLOCK_MANGROVE_ROOTS_BREAK, SoundCategory.BLOCKS, 1, 1);
-                    world.playSound(null, pos, SoundEvents.BLOCK_ENCHANTMENT_TABLE_USE, SoundCategory.BLOCKS, 1, 1);
-                    world.playSound(null, pos, SoundEvents.ITEM_TRIDENT_THUNDER.value(), SoundCategory.BLOCKS, 1, 3);
+                    if (!player.getItemCooldownManager().isCoolingDown(ThaumaturgyItems.SACRIFICIAL_KNIFE)) {
+                        world.playSound(null, pos, SoundEvents.BLOCK_MANGROVE_ROOTS_BREAK, SoundCategory.BLOCKS, 1, 1);
+                        world.playSound(null, pos, SoundEvents.BLOCK_ENCHANTMENT_TABLE_USE, SoundCategory.BLOCKS, 1, 1);
+                        world.playSound(null, pos, SoundEvents.ITEM_TRIDENT_THUNDER.value(), SoundCategory.BLOCKS, 1, 3);
 
-                    serverWorld.spawnParticles(ParticleTypes.END_ROD,
-                            pos.getX() + 0.5f,
-                            pos.getY() + 1.5f,
-                            pos.getZ() + 0.5f,
-                            9,
-                            0.02,
-                            0.02,
-                            0.02,
-                            0.03
-                    );
+                        serverWorld.spawnParticles(ParticleTypes.END_ROD,
+                                pos.getX() + 0.5f,
+                                pos.getY() + 1.5f,
+                                pos.getZ() + 0.5f,
+                                9,
+                                0.02,
+                                0.02,
+                                0.02,
+                                0.03
+                        );
 
-                    RitualUtils.RitualVariation variation = RitualUtils.getRitualVariation(offStack);
-                    if (!player.isInCreativeMode()) {
-                        offStack.split(1);
-                        player.getItemCooldownManager().set(ThaumaturgyItems.SACRIFICIAL_KNIFE, 90);
-                    }
-
-                    if (variation != null) {
-                        be.startRitual(world, pos, player, be, variation);
-
-                        if (FabricLoader.getInstance().isDevelopmentEnvironment()) {
-                            Thaumaturgy.LOGGER.info("Ran ritual: {}", variation.asString());
+                        RitualUtils.RitualVariation variation = RitualUtils.getRitualVariation(offStack);
+                        if (!player.isInCreativeMode()) {
+                            offStack.split(1);
+                            player.getItemCooldownManager().set(ThaumaturgyItems.SACRIFICIAL_KNIFE, 90);
                         }
+
+                        if (variation != null) {
+                            be.startRitual(world, pos, player, be, variation);
+
+                            if (FabricLoader.getInstance().isDevelopmentEnvironment()) {
+                                Thaumaturgy.LOGGER.info("Ran ritual: {}", variation.asString());
+                            }
+                        }
+                        return ActionResult.SUCCESS;
                     }
-                    return ActionResult.SUCCESS;
                 }
             }
         }
