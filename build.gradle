@@ -58,7 +58,6 @@ dependencies {
     // Libraries
     modImplementation "maven.modrinth:acornlib:${project.acornlib_version}"
     modImplementation include("maven.modrinth:nitrogen_rbn:${project.nitrogen_version}")
-    modImplementation "maven.modrinth:lux_chemthunder:${project.lux_version}"
 
     // Config
     modApi ("com.terraformersmc:modmenu:${project.modmenu_version}")

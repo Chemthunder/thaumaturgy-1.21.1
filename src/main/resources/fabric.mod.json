@@ -12,7 +12,7 @@
     "eeverest - Sacrificial Knife"
   ],
   "license": "CC0-1.0",
-  "icon": "assets/thaumaturgy/icon.png",
+  "icon": "assets/thaumaturgy/thaumaturgy_icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
@@ -45,7 +45,7 @@
 
     "modmenu": {
       "links": {
-        "get Weezer'd or smth idfk": "https://music.youtube.com/watch?v=cQzMHhRCTYw",
+        "get Weezer'd or smth idfk": "https://music.youtube.com/watch?v=cQzMHhRCTYw&si=mNbt5BnsEtXS-eNY&t=127",
         "Tumblr": "https://tumblr.com/chemthunder"
       },
       "update_checker": false
