@@ -31,12 +31,4 @@ public interface ThaumaturgyBlockEntities {
             Registry.register(Registries.BLOCK_ENTITY_TYPE, BLOCK_ENTITIES.get(blockEntity), blockEntity);
         });
     }
-
-    static void clientInit() {
-      //  setupBlockEntityRenderers();
-    }
-
-    private static void setupBlockEntityRenderers() {
-       // BlockEntityRendererFactories.register(CORNERSTONE, context -> new CornerstoneBlockEntityRenderer());
-    }
 }

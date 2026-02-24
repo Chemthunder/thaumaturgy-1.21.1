@@ -11,7 +11,6 @@ public class ThaumaturgyClient implements ClientModInitializer {
 
     public void onInitializeClient() {
         ThaumaturgyBlocks.clientInit();
-        ThaumaturgyBlockEntities.clientInit();
         ThaumaturgyEntities.clientInit();
 
         HudRenderCallback.EVENT.register(new KnifeOverlayEvent());
