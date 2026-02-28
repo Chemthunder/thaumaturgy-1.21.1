@@ -2,7 +2,6 @@ package net.chemthunder.thaumaturgy.mixin;
 
 import net.chemthunder.thaumaturgy.impl.index.ThaumaturgyBlocks;
 import net.chemthunder.thaumaturgy.impl.index.ThaumaturgyItems;
-import net.chemthunder.thaumaturgy.impl.index.ThaumaturgySounds;
 import net.chemthunder.thaumaturgy.impl.index.tag.ThaumaturgyItemTags;
 import net.minecraft.block.BlockState;
 import net.minecraft.item.ItemStack;

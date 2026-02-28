@@ -1,0 +1,32 @@
+{
+  "parent": "thaumaturgy:root",
+  "criteria": {
+    "a": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "thaumaturgy:interceptor"
+          }
+        ]
+      }
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": "Collect an Interceptor",
+    "icon": {
+      "count": 1,
+      "id": "thaumaturgy:interceptor"
+    },
+    "show_toast": true,
+    "title": "Lying in Wait",
+    "hidden": false
+  },
+  "requirements": [
+    [
+      "a"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

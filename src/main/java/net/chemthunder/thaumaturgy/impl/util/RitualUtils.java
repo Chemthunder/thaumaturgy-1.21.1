@@ -15,7 +15,6 @@ public class RitualUtils {
         LUMINOUS("Luminous"), // torchflower
         CARRION("Carrion"), // wither rose
         ABUNDANCE("Abundance"), // cornflower
-        OVERCLOCK("Overclock"), // dandelion
         EMPTY("Empty");
 
         private final String id;
@@ -37,7 +36,6 @@ public class RitualUtils {
         if (offStack.isOf(Items.WITHER_ROSE)) {variation = RitualVariation.CARRION;}
         if (offStack.isOf(Items.TORCHFLOWER)) {variation = RitualVariation.LUMINOUS;}
         if (offStack.isOf(Items.CORNFLOWER)) {variation = RitualVariation.ABUNDANCE;}
-        if (offStack.isOf(Items.DANDELION)) {variation = RitualVariation.OVERCLOCK;}
 
         return variation;
     }
@@ -50,7 +48,6 @@ public class RitualUtils {
             case LUMINOUS -> "he/him";
             case CARRION -> "it/its";
             case ABUNDANCE -> "he/she";
-            case OVERCLOCK -> "they/them";
             case EMPTY -> "any/all";
         };
     }
@@ -63,7 +60,6 @@ public class RitualUtils {
             case LUMINOUS -> 0xFFffaa00;
             case CARRION -> 0xFF400300;
             case ABUNDANCE -> 0xFF5971de;
-            case OVERCLOCK -> 0xFFffe561;
             case EMPTY -> 0xFF58ca8d;
         };
     }

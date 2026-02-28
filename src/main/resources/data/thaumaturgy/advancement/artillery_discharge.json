@@ -1,0 +1,32 @@
+{
+  "parent": "thaumaturgy:root",
+  "criteria": {
+    "a": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "thaumaturgy:pouch"
+          }
+        ]
+      }
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": "Throw a Pouch long-range",
+    "icon": {
+      "count": 1,
+      "id": "thaumaturgy:pouch"
+    },
+    "show_toast": true,
+    "title": "Artillery Fire!",
+    "hidden": false
+  },
+  "requirements": [
+    [
+      "a"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

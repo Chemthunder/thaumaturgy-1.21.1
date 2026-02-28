@@ -5,8 +5,6 @@ import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.chemthunder.thaumaturgy.impl.Thaumaturgy;
 import net.chemthunder.thaumaturgy.impl.cca.entity.TransEntityComponent;
 import net.chemthunder.thaumaturgy.impl.index.ThaumaturgyItems;
-import net.chemthunder.thaumaturgy.impl.index.ThaumaturgySounds;
-import net.chemthunder.thaumaturgy.impl.index.tag.ThaumaturgyItemTags;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.hud.InGameHud;

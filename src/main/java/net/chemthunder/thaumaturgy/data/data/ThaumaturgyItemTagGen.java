@@ -17,7 +17,6 @@ public class ThaumaturgyItemTagGen extends FabricTagProvider.ItemTagProvider {
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
         this.getOrCreateTagBuilder(ACCEPTABLE)
                 .add(Items.POPPY)
-                .add(Items.DANDELION)
                 .add(Items.PEONY)
                 .add(Items.CORNFLOWER)
                 .add(Items.ALLIUM)

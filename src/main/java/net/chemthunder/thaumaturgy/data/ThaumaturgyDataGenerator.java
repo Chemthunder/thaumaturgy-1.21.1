@@ -1,5 +1,7 @@
 package net.chemthunder.thaumaturgy.data;
 
+import net.chemthunder.thaumaturgy.data.data.ThaumaturgyBlockLootTableGen;
+import net.chemthunder.thaumaturgy.data.data.ThaumaturgyBlockTagGen;
 import net.chemthunder.thaumaturgy.data.data.ThaumaturgyDamageTypeTagGen;
 import net.chemthunder.thaumaturgy.data.data.ThaumaturgyItemTagGen;
 import net.chemthunder.thaumaturgy.data.resources.ThaumaturgyLangGen;
@@ -19,6 +21,8 @@ public class ThaumaturgyDataGenerator implements DataGeneratorEntrypoint {
 
         pack.addProvider(ThaumaturgyDamageTypeTagGen::new);
         pack.addProvider(ThaumaturgyItemTagGen::new);
+        pack.addProvider(ThaumaturgyBlockLootTableGen::new);
+        pack.addProvider(ThaumaturgyBlockTagGen::new);
 
         pack.addProvider(ThaumaturgyDynamicRegistryGen::new);
 	}

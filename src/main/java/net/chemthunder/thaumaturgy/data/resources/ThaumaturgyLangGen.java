@@ -11,7 +11,6 @@ import net.minecraft.registry.RegistryWrapper;
 import java.util.concurrent.CompletableFuture;
 
 import static net.chemthunder.thaumaturgy.impl.index.ThaumaturgyItems.*;
-import static net.chemthunder.thaumaturgy.impl.index.ThaumaturgyEffects.*;
 
 public class ThaumaturgyLangGen extends FabricLanguageProvider {
     public ThaumaturgyLangGen(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
@@ -31,6 +30,9 @@ public class ThaumaturgyLangGen extends FabricLanguageProvider {
         // misc
         translationBuilder.add("itemGroup.thaumaturgy", "Thaumaturgy");
         translationBuilder.add("pouch.contents.readout", "Contents: ");
+
+        translationBuilder.add("tooltip.interceptor.1", "A mysterious item useful for conducting");
+        translationBuilder.add("tooltip.interceptor.2", "rituals and thaumaturgies.");
 
         // ritual
         translationBuilder.add("pouch.fail_load", "This item cannot be used for Pouches!");

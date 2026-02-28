@@ -4,7 +4,6 @@ import net.chemthunder.thaumaturgy.impl.Thaumaturgy;
 import net.chemthunder.thaumaturgy.impl.cca.entity.GlowingEntityComponent;
 import net.chemthunder.thaumaturgy.impl.index.ThaumaturgyEffects;
 import net.chemthunder.thaumaturgy.impl.index.ThaumaturgyItems;
-import net.chemthunder.thaumaturgy.impl.index.ThaumaturgySounds;
 import net.chemthunder.thaumaturgy.impl.index.data.ThaumaturgyDamageTypes;
 import net.chemthunder.thaumaturgy.impl.util.RitualUtils;
 import net.minecraft.block.BlockState;
@@ -18,7 +17,6 @@ import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.thrown.PotionEntity;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -92,7 +90,7 @@ public class PouchEntity extends ThrownItemEntity implements Ownable {
 
                         if (variation == RitualUtils.RitualVariation.CARRION) {
                             for (LivingEntity target : entities) {
-                                target.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER, 600));
+                                target.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER, 200));
                                 target.playSound(SoundEvents.ENTITY_WITHER_BREAK_BLOCK);
                             }
                         }
@@ -114,14 +112,8 @@ public class PouchEntity extends ThrownItemEntity implements Ownable {
                                 );
                             }
                         }
-
-                        if (variation == RitualUtils.RitualVariation.OVERCLOCK) {
-                            for (LivingEntity living : entities) {
-                                living.addStatusEffect(new StatusEffectInstance(ThaumaturgyEffects.OVERCLOCK, 160));
-                            }
-                        }
                     } else {
-                        Thaumaturgy.LOGGER.error("Pouch contents for: " + this.getUuidAsString() + " are null!");
+                        Thaumaturgy.LOGGER.error("Pouch contents for: {} are null!", this.getUuidAsString());
                     }
                 }
 

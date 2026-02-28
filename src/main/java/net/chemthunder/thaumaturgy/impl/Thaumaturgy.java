@@ -4,6 +4,7 @@ import eu.midnightdust.lib.config.MidnightConfig;
 import net.acoyt.acornlib.api.ALib;
 import net.chemthunder.thaumaturgy.impl.index.*;
 import net.chemthunder.thaumaturgy.impl.util.ThaumaConfig;
+import net.chemthunder.thaumaturgy.impl.util.ThaumaLootTableModifiers;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
@@ -24,7 +25,8 @@ public class Thaumaturgy implements ModInitializer {
         ThaumaturgyEffects.init();
         ThaumaturgyItemGroups.init();
         ThaumaturgyEntities.init();
-        ThaumaturgySounds.init();
+
+        ThaumaLootTableModifiers.init();
 
         MidnightConfig.init(MOD_ID, ThaumaConfig.class);
 

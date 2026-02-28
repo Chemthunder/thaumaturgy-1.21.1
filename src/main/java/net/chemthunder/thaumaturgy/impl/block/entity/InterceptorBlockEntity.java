@@ -95,11 +95,5 @@ public class InterceptorBlockEntity extends BlockEntity {
                 }
             }
         }
-
-        if (variation == RitualUtils.RitualVariation.OVERCLOCK) {
-            for (LivingEntity target : entities) {
-                target.addStatusEffect(new StatusEffectInstance(ThaumaturgyEffects.OVERCLOCK, 260));
-            }
-        }
     }
 }

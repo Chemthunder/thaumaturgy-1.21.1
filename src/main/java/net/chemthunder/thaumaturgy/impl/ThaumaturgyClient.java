@@ -1,7 +1,6 @@
 package net.chemthunder.thaumaturgy.impl;
 
 import net.chemthunder.thaumaturgy.impl.client.event.KnifeOverlayEvent;
-import net.chemthunder.thaumaturgy.impl.index.ThaumaturgyBlockEntities;
 import net.chemthunder.thaumaturgy.impl.index.ThaumaturgyBlocks;
 import net.chemthunder.thaumaturgy.impl.index.ThaumaturgyEntities;
 import net.fabricmc.api.ClientModInitializer;
