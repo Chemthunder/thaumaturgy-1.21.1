@@ -38,7 +38,6 @@ public interface ThaumaturgyItemGroups {
         itemGroup.add(Items.POPPY);
         itemGroup.add(Items.CORNFLOWER);
         itemGroup.add(Items.PEONY);
-        itemGroup.add(Items.ALLIUM);
         itemGroup.add(Items.TORCHFLOWER);
         itemGroup.add(Items.WITHER_ROSE);
     }

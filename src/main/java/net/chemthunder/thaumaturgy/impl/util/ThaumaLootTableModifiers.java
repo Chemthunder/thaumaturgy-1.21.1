@@ -11,7 +11,6 @@ import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.util.Identifier;
 
 public class ThaumaLootTableModifiers implements LootTableEvents.Modify {
     public static void init() {
@@ -19,15 +18,6 @@ public class ThaumaLootTableModifiers implements LootTableEvents.Modify {
     }
 
     public void modifyLootTable(RegistryKey<LootTable> key, LootTable.Builder tableBuilder, LootTableSource source, RegistryWrapper.WrapperLookup registries) {
-        if (LootTables.JUNGLE_TEMPLE_CHEST.equals(key)) {
-            LootPool.Builder poolBuilder = LootPool.builder()
-                    .rolls(UniformLootNumberProvider.create(1.0F, 2.0F))
-                    .conditionally(RandomChanceLootCondition.builder(0.2F))
-                    .with(ItemEntry.builder(ThaumaturgyItems.INTERCEPTOR_ITEM));
-
-            tableBuilder.pool(poolBuilder);
-        }
-
         if (LootTables.ABANDONED_MINESHAFT_CHEST.equals(key)) {
             LootPool.Builder poolBuilder = LootPool.builder()
                     .rolls(UniformLootNumberProvider.create(1.0F, 1.0F))
@@ -36,7 +26,5 @@ public class ThaumaLootTableModifiers implements LootTableEvents.Modify {
 
             tableBuilder.pool(poolBuilder);
         }
-
-
     }
 }

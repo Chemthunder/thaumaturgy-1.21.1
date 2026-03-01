@@ -19,7 +19,6 @@ public class ThaumaturgyItemTagGen extends FabricTagProvider.ItemTagProvider {
                 .add(Items.POPPY)
                 .add(Items.PEONY)
                 .add(Items.CORNFLOWER)
-                .add(Items.ALLIUM)
                 .add(Items.WITHER_ROSE)
                 .add(Items.TORCHFLOWER)
                 .setReplace(true);

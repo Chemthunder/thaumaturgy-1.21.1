@@ -60,10 +60,6 @@ public class InterceptorBlockEntity extends BlockEntity {
             }
         }
 
-        if (variation == RitualUtils.RitualVariation.WARDING) {
-
-        }
-
         if (variation == RitualUtils.RitualVariation.ABUNDANCE) {
             int givenXp = 0;
             for (LivingEntity entity : entities) {

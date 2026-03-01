@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "R": {
+      "item": "minecraft:red_dye"
+    },
+    "L": {
+      "item": "minecraft:lodestone"
+    },
+    "S": {
+      "item": "minecraft:soul_campfire"
+    }
+  },
+  "pattern": [
+    " R ",
+    "RLR",
+    " S "
+  ],
+  "result": {
+    "count": 1,
+    "id": "thaumaturgy:interceptor"
+  }
+}

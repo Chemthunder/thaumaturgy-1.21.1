@@ -11,7 +11,6 @@ public class RitualUtils {
     public enum RitualVariation implements StringIdentifiable {
         NARCOTIC("Narcotic"), // poppy
         TRANSCENDANT("Transcendent"), // peony
-        WARDING("Warding"), // allium
         LUMINOUS("Luminous"), // torchflower
         CARRION("Carrion"), // wither rose
         ABUNDANCE("Abundance"), // cornflower
@@ -32,7 +31,6 @@ public class RitualUtils {
         RitualUtils.RitualVariation variation = null;
         if (offStack.isOf(Items.POPPY)) {variation = RitualVariation.NARCOTIC;}
         if (offStack.isOf(Items.PEONY)) {variation = RitualVariation.TRANSCENDANT;}
-        if (offStack.isOf(Items.ALLIUM)) {variation = RitualVariation.WARDING;}
         if (offStack.isOf(Items.WITHER_ROSE)) {variation = RitualVariation.CARRION;}
         if (offStack.isOf(Items.TORCHFLOWER)) {variation = RitualVariation.LUMINOUS;}
         if (offStack.isOf(Items.CORNFLOWER)) {variation = RitualVariation.ABUNDANCE;}
@@ -44,7 +42,6 @@ public class RitualUtils {
         return switch (variation) {
             case NARCOTIC -> "he/they";
             case TRANSCENDANT -> "she/her";
-            case WARDING -> "she/they";
             case LUMINOUS -> "he/him";
             case CARRION -> "it/its";
             case ABUNDANCE -> "he/she";
@@ -56,7 +53,6 @@ public class RitualUtils {
         return switch(variation) {
             case NARCOTIC -> 0xFF9d0035;
             case TRANSCENDANT -> 0xFFff9bfd;
-            case WARDING -> 0xFFa30cc4;
             case LUMINOUS -> 0xFFffaa00;
             case CARRION -> 0xFF400300;
             case ABUNDANCE -> 0xFF5971de;
